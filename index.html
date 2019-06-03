@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Моя Работа</title>
+  </head>
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <body style="background-image: url(ds.jpg);">
+    
+  <div id="example" class="text-center text-dark mt-5" style="font-size: 90px; font-family: Times New Roman Header">
+    <h1>Dark Souls</h1>
+  </div>
+
+<div class="row col-12">
+
+<div class="korobka ml-3  border col-3 text-white" style="display: none; width: 350px; background: #363c47; opacity: 0.7; height: 250px">
+  <h2>Выберите сложность:</h2>
+  <a href="jake — копия (2).html" class="text-success"><h3>Легко</h3></a>
+  <a href="jake.html" class="text-warning"><h3>Нормально</h3></a>
+  <a href="jake — копия.html" class="text-danger"><h3>Сложно</h3></a>
+</div>
+<div class="col-6"> </div>
+<div class="border divka col-3 text-white" style=" background: #363c47; opacity: 0.7; width: 350px; height: 250px; margin-left: 1100px; position: absolute; display: none;">
+  <h2>Суть игры:</h2>
+  -Вам нужно поймать как можно больше душ, 
+  <div>для того чтобы главный герой смог поглотить их, и спасти мир.</div>
+</div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+ $.fn.animate_Text = function() {
+  var string = this.text();
+  return this.each(function(){
+   var $this = $(this);
+   $this.html(string.replace(/./g, '<span class="new">$&</span>'));
+   $this.find('span.new').each(function(i, el){
+    setTimeout(function(){ $(el).addClass('div_opacity'); }, 40 * i);
+   });
+  });
+ };
+ $('#example').show();
+ $('#example').animate_Text();
+});
+
+let vremya = function(){
+  document.querySelector(".korobka").style.display = "block"
+}
+setTimeout(vremya,1100)
+
+let vremya1 = function(){
+  document.querySelector(".divka").style.display = "block"
+}
+setTimeout(vremya1,1100)
+
+</script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+  </body>
+</html>

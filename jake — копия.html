@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>	</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script type="text/javascript">
+		var x = new Date().getTime() + 30000;
+            function backTimer() {
+                var j = document.getElementsByTagName('div')[0];
+                var i = new Date().getTime();
+
+                if(i < x) {
+
+                    j.innerHTML = new Date(x - i).toLocaleTimeString();
+
+                    setTimeout(backTimer, 500);
+
+                } else {
+
+                    j.innerHTML = "00:00:00";
+
+                }
+
+            }
+	</script>
+</head>
+<body style="background-image: url(bg.jpg);">
+	<div class="game">
+		<h1 class="text-center">POINTS</h1>
+		<h1 class="points text-center">0</h1>
+		<div  onload="backTimer();">	</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-3 border" style="height: 300px; background: #37383a; opacity: 0.7">
+					<img class="jakethedog w-100" src="s.png" alt="" style="display: none">
+					<img class="badsoul w-100" src="badsoul.png" alt="" style="display: none">
+					<img class="bigsoul w-100" src="sd.png" alt="" style="display: none">
+				</div>
+				<div class="col-3 border" style="height: 300px; background: #37383a; opacity: 0.7">
+					<img class="jakethedog w-100" src="s.png"  alt="" style="display: none">
+					<img class="badsoul w-100" src="badsoul.png" alt="" style="display: none">
+					<img class="bigsoul w-100" src="sd.png" alt="" style="display: none">
+				</div>
+				<div class="col-3 border" style="height: 300px; background: #37383a; opacity: 0.7">
+					<img class="jakethedog w-100" src="s.png"  alt="" style="display: none">
+					<img class="badsoul w-100" src="badsoul.png" alt="" style="display: none">
+					<img class="bigsoul w-100" src="sd.png" alt="" style="display: none">
+				</div>
+				<div class="col-3 border" style="height: 300px; background: #37383a; opacity: 0.7">
+					<img class="jakethedog w-100" src="s.png"  alt="" style="display: none">
+					<img class="badsoul w-100" src="badsoul.png" alt="" style="display: none">
+					<img class="bigsoul w-100" src="sd.png" alt="" style="display: none">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-3 border" style="height: 300px; background: #37383a; opacity: 0.7">
+					<img class="jakethedog w-100" src="s.png" alt="" style="display: none">
+					<img class="badsoul w-100" src="badsoul.png" alt="" style="display: none">
+					<img class="bigsoul w-100" src="sd.png" alt="" style="display: none">
+				</div>
+				<div class="col-3 border" style="height: 300px; background: #37383a; opacity: 0.7">
+					<img class="jakethedog w-100" src="s.png"  alt="" style="display: none">
+					<img class="badsoul w-100" src="badsoul.png" alt="" style="display: none">
+					<img class="bigsoul w-100" src="sd.png" alt="" style="display: none">
+				</div>
+				<div class="col-3 border" style="height: 300px; background: #37383a; opacity: 0.7">
+					<img class="jakethedog w-100" src="s.png"  alt="" style="display: none">
+					<img class="badsoul w-100" src="badsoul.png" alt="" style="display: none">
+				</div>
+				<div class="col-3 border" style="height: 300px; background: #37383a; opacity: 0.7">
+					<img class="jakethedog w-100" src="s.png"  alt="" style="display: none">
+					<img class="badsoul w-100" src="badsoul.png" alt="" style="display: none">
+					<img class="bigsoul w-100" src="sd.png" alt="" style="display: none">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-6 mx-auto theend" style=" background: #fbbb11; height: 550px; margin-top: 10%; display: none">
+		<h1  class="text-center mb-0" style="font-size: 150px">GAME OVER</h1>
+		<h1  class="text-center mb-0" style="font-size: 150px">POINTS</h1>
+		<h1  class="text-center gameover" style="font-size: 150px">0</h1>
+	</div>
+
+	<script>
+		
+
+	let score = 0
+	let jek = document.querySelectorAll(".jakethedog")
+	let kg = document.querySelectorAll(".badsoul")
+	let bs = document.querySelectorAll(".bigsoul")
+
+	let interv = function(){
+		let rand = Math.random()*8;
+		let round = Math.round(rand);
+		jek[round].style.display = "block";
+}
+	setInterval(interv,1000)
+
+	let time = function(){
+	for(let index1 = 0; index1<8; index1 = index1 + 1){//цикл
+		jek[index1].style.display = "none";
+		jek[index1].onclick = function(){
+			jek[index1].style.display = "none";
+			score = score + 1
+			document.querySelector(".points").innerHTML = score;
+		}
+	}
+}
+	setInterval(time,1500)
+
+	let interv1 = function(){
+		let rand2 = Math.random()*8;
+		let round2 = Math.round(rand2);
+		kg[round2].style.display = "block";
+}
+	setInterval(interv1,2000)
+
+
+	let time1 = function(){
+	for(let index2 = 0; index2<8; index2 = index2 + 1){//цикл
+		kg[index2].style.display = "none";
+		kg[index2].onclick = function(){
+			kg[index2].style.display = "none";
+			score = score - 10
+			document.querySelector(".points").innerHTML = score;
+		}
+	}
+}
+
+	setInterval(time1,2500)
+
+		let interv2 = function(){
+		let rand3 = Math.random()*8;
+		let round3 = Math.round(rand3);
+		bs[round3].style.display = "block";
+}
+	setInterval(interv2,2000)
+
+	let time2 = function(){
+	for(let index3 = 0; index3<8; index3 = index3 + 1){//цикл
+		bs[index3].style.display = "none";
+		bs[index3].onclick = function(){
+			bs[index3].style.display = "none";
+			score = score + 8
+			document.querySelector(".points").innerHTML = score;
+		}
+	}
+}
+
+	setInterval(time2,2500)
+
+	let int = function(){
+		if (score<20) {//условие
+		alert("Вы проиграли")
+		} 
+		else {
+			alert("Ты выиграл")
+		}
+	}
+	setTimeout(int,50000)
+
+
+	</script>
+</body>
+</html>

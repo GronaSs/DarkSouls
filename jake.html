@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>	</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body style="background-image: url(bg.jpg);">
+	<div class="game">
+		<h1 class="text-center">POINTS</h1>
+		<h1 class="points text-center">0</h1>
+		<div class="container">
+			<div class="row">
+				<div class="col-3 border" style="height: 300px; background: #37383a; opacity: 0.7">
+					<img class="jakethedog w-100" src="s.png" alt="" style="display: none">
+				</div>
+				<div class="col-3 border" style="height: 300px; background: #37383a; opacity: 0.7">
+					<img class="jakethedog w-100" src="s.png"  alt="" style="display: none">
+				</div>
+				<div class="col-3 border" style="height: 300px; background: #37383a; opacity: 0.7">
+					<img class="jakethedog w-100" src="s.png"  alt="" style="display: none">
+				</div>
+				<div class="col-3 border" style="height: 300px; background: #37383a; opacity: 0.7">
+					<img class="jakethedog w-100" src="s.png"  alt="" style="display: none">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-3 border" style="height: 300px; background: #37383a; opacity: 0.7">
+					<img class="jakethedog w-100" src="s.png" alt="" style="display: none">
+				</div>
+				<div class="col-3 border" style="height: 300px; background: #37383a; opacity: 0.7">
+					<img class="jakethedog w-100" src="s.png"  alt="" style="display: none">
+				</div>
+				<div class="col-3 border" style="height: 300px; background: #37383a; opacity: 0.7">
+					<img class="jakethedog w-100" src="s.png"  alt="" style="display: none">
+				</div>
+				<div class="col-3 border" style="height: 300px; background: #37383a; opacity: 0.7">
+					<img class="jakethedog w-100" src="s.png"  alt="" style="display: none">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-6 mx-auto theend" style=" background: #fbbb11; height: 550px; margin-top: 10%; display: none">
+		<h1  class="text-center mb-0" style="font-size: 150px">GAME OVER</h1>
+		<h1  class="text-center mb-0" style="font-size: 150px">POINTS</h1>
+		<h1  class="text-center gameover" style="font-size: 150px">0</h1>
+	</div>
+
+	<script>
+		
+
+		let dogs = document.querySelectorAll(".jakethedog");
+		
+		//функция, которая будет выполнять что-то каждую секунду.
+		let func = function(){
+
+			//генерится рандомное число, сохраняем в переменную
+			let index = Math.round(Math.random()*7);
+
+			//эту же собачку делаем видимой.
+			dogs[index].style.display = "block";
+
+			//через какое то время делаем ее же невидимой.
+			setTimeout(function(){
+				dogs[index].style.display = "none";
+			},1000)
+
+		}
+
+		//вызов функции много раз
+		setInterval(func,800);
+
+		let score=0;
+
+		//циклы, массивы.
+		for(let i=0; i<dogs.length;i++){
+
+			//должны понимать, что переменная i не видна за циклом.
+
+			dogs[i].onclick = function(){
+				score++;
+				dogs[i].style.display = "none"
+				document.querySelector(".points").innerHTML = score;
+			}
+		}
+		
+		//можно будет устроить турнир 
+
+
+	let int = function(){
+		if (score<5) {//условие
+		alert("Вы проиграли")
+		} 
+		else {
+			alert("Ты выиграл")
+		}
+	}
+	setTimeout(int,100000)
+
+
+		//1.
+	</script>
+</body>
+</html>
